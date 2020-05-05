@@ -32,7 +32,7 @@ if ($user != null) {
 ```loginUser()``` returns a ```User``` Object
 ### Registering User
 ```php
-$user = $sls->registerUser($email, $plainTextassword);
+$user = $sls->registerUser($email, $plainTextPassword);
 ```
 ```registerUser()``` returns a ```User``` Object
 ### Obtain user ID and E-Mail address
