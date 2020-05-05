@@ -6,6 +6,8 @@
 - Forgot-Password Feature
 - Reset-Password Feature
 - Hashed & salted passwords (```PASSWORD_DEFAULT```'s ```BCRYPT``` algorithm) - passwords are NEVER processed in plain text
+- configurable, mandatory password length (default is 8 character)
+- configurable, mandatory password charset (default is at least one lowercase and uppercase letter, number and special character)
 - Very easy usage through PHP OOP
 
 ## Usage
