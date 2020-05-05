@@ -34,7 +34,7 @@ $user = $sls->registerUser($email, $plainTextassword);
 ```
 ```registerUser()``` returns a ```User``` Object
 ### Obtain user ID and E-Mail address
-The getter functions ```SLS::getID()``` and ```SLS::getEmail()``` return the ```Users```'s ID and E-Mail address
+The getter methods ```SLS::getID()``` and ```SLS::getEmail()``` return the ```Users```'s ID and E-Mail address
 ```
 $id = $user->getID();
 $email = $user->Email();
