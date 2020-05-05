@@ -12,14 +12,14 @@
 
 ## Usage
 ### Loading & Creating a SLS instance
-```
-require 'SLS.php'
+```php
+require 'SLS.php';
 
 $sls = SLS::getInstance();
 ```
 ### Logging In User
 The following code will log in the user, initialize his session and redirect him to the confidential page `confidential.php`
-```
+```php
 $user = $sls->loginUser($username,$plainTextPassword);
 if ($user != null) {
     session_start();
@@ -31,13 +31,13 @@ if ($user != null) {
 ```
 ```loginUser()``` returns a ```User``` Object
 ### Registering User
-```
+```php
 $user = $sls->registerUser($email, $plainTextassword);
 ```
 ```registerUser()``` returns a ```User``` Object
 ### Obtain user ID and E-Mail address
 The getter methods ```SLS::getID()``` and ```SLS::getEmail()``` return the ```Users```'s ID and E-Mail address
-```
+```php
 $id = $user->getID();
 $email = $user->Email();
 ```
