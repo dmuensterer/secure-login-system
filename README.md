@@ -9,8 +9,10 @@
 - Very easy usage through PHP OOP
 
 ## Usage
-### Create SLS instance
+### Loading & Creating a SLS instance
 ```
+require 'SLS.php'
+
 $sls = SLS::getInstance();
 ```
 ### Log In User
