@@ -1,4 +1,4 @@
-# Secure Login System - A simple, security focussed login system with great usability using PHP PDO and MySQL
+# Secure Login System - A simple PHP/MySQL OOP login system with focus on security
 
 ## Class features
 - User Registration & Login via Email and Password
