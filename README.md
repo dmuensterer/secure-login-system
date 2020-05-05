@@ -2,7 +2,7 @@
 
 ## Class features
 - User Registration & Login via Email and Password
-- Optional Double-Opt-in E-Mail Verification
+- Optional E-Mail Verification
 - Forgot-Password Feature
 - Reset-Password Feature
 - Hashed & salted passwords (```PASSWORD_DEFAULT```'s ```BCRYPT``` algorithm) - passwords are NEVER processed in plain text
