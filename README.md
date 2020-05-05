@@ -15,7 +15,7 @@ require 'SLS.php'
 
 $sls = SLS::getInstance();
 ```
-### Log In User
+### Logging In User
 The following code will log in the user, initialize his session and redirect him to the confidential page `confidential.php`
 ```
 $user = $sls->loginUser($username,$plainTextPassword);
@@ -28,7 +28,7 @@ if ($user != null) {
 }
 ```
 ```loginUser()``` returns a ```User``` Object
-### Register User
+### Registering User
 ```
 $user = $sls->registerUser($email, $plainTextassword);
 ```
