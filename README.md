@@ -35,6 +35,7 @@ if ($user != null) {
 $user = $sls->registerUser($email, $plainTextPassword);
 ```
 ```registerUser()``` returns a ```User``` Object
+A user is automatically logged in after a successful registration.
 ### Obtain user ID and E-Mail address
 The getter methods ```SLS::getID()``` and ```SLS::getEmail()``` return the ```Users```'s ID and E-Mail address
 ```php
