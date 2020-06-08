@@ -7,10 +7,15 @@
 - Optional E-Mail Verification (Token Strength Configurable)
 - Forgot-Password Feature
 - Reset-Password Feature
-- Hashed & salted passwords (```PASSWORD_DEFAULT```'s ```BCRYPT``` algorithm) - passwords are NEVER processed in plain text
+- All debatable variables and configurations are easily configurable from the ``Configuration`` class 
 - Configurable mandatory password length (default is 8 character)
-- Configurable, mandatory password charset (default is at least one lowercase and uppercase letter, number and special character)
+- Configurable, minimum password charset (lowercase and uppercase letters, numbers and special characters)
 - Very easy usage through PHP OOP
+
+## Default Security Benefits
+ - Hashed & salted passwords (```PASSWORD_DEFAULT```'s ```BCRYPT``` algorithm) - passwords are NEVER processed in plain text
+ - Database connection run using PDO prepared statements and in use of ``PDO::ERRMODE_EXCEPTION`` - no mysqli usage
+ - All user inputs are properly serialized using ``htmlentities()``
 
 ## Usage
 ### Loading & Creating a SLS instance
