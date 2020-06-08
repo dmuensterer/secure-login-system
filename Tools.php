@@ -1,55 +1,36 @@
 <?php
+    require_once 'Config.php';
     require_once 'Language.php';
+    require_once 'Err.php';
 
     final class Tools {
+        private $configInstance;
+        private $language;
 
-        private $currentLanguage;
+        public function isPasswordValid($password) {
 
-        public function getCurrentLanguage() {
-            return $this->currentLanguage;
+            if (strlen($password) < $this->configInstance::MINPASSWORDLENGTH) {
+                return new Err ($this->language->password_too_short);
+            }
+            if (!preg_match("/\d{" . $this->configInstance::MINNUMBERS . ",}/", $password)) {
+                return new Err ($this->language->password_not_enough_numbers);
+            }
+            if (!preg_match("/[A-Z]{" . $this->configInstance::MINUPPERCASELETTERS . ",}/", $password)) {
+                return new Err ($this->language->password_not_enough_uppercase);
+            }
+            if (!preg_match("/[a-z]{" . $this->configInstance::MINLOWERCASELETTERS . ",}/", $password)) {
+                return new Err ($this->language->password_not_enough_lowercase);
+            }
+            if (!preg_match("/\W{" . $this->configInstance::MINSPECIALCHARS . ",}/", $password)) {
+                return new Err ($this->language->password_not_enough_special);
+            }
+             return true;
         }
 
-        public function setCurrentLanguage(string $language) {
-            switch($language) {
-                case "german":
-                    $this->currentLanguage = new German;
-                    break;
-                case "english":
-                    $this->currentLanguage = new English;
-                    break;
-            }
-        }
-
-        public function checkPasswordRequirements($password) {
-            $errors = array();
-
-            if (strlen($password) < 8) {
-                $errors[] = "Password should be min 8 characters";
-            }
-            if (!preg_match("/\d/", $password)) {
-                $errors[] = "Password should contain at least one digit";
-            }
-            if (!preg_match("/[A-Z]{1,}/", $password)) {
-                $errors[] = "Password should contain at least one Capital Letter";
-            }
-            if (!preg_match("/[a-z]/", $password)) {
-                $errors[] = "Password should contain at least one small Letter";
-            }
-            if (!preg_match("/\W/", $password)) {
-                $errors[] = "Password should contain at least one special character";
-            }
-            if (preg_match("/\s/", $password)) {
-                $errors[] = "Password should not contain any white space";
-            }
-
-            if ($errors) {
-                foreach ($errors as $error) {
-                    echo $error . "\n";
-                }
-                die();
-            } else {
-                echo "$password => MATCH\n";
-            }
+        public function __construct() {
+            $this->configInstance = Configuration::getInstance();
+            $l = new Language;
+            $this->language = $l->getCurrentLanguage();
         }
 
     }

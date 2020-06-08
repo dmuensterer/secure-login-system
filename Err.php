@@ -1,6 +1,7 @@
 <?php
     /**
-     * Creates new Error with provided description
+     * Custom Error class with mandatory description
+     * This Class is used in the UI PHP files to display errors to users
      */
     class Err {
         private $err_description;

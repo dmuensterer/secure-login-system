@@ -5,9 +5,7 @@ include 'db.php';
 
 session_start();
 
-
-
-if (!isset($_SESSION['id'])) {
+if (!$sls->isUserLoggedIn()) {
     header('Location: login.php');
     die();
 }

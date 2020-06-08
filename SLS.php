@@ -13,6 +13,7 @@
     require_once 'Config.php';
     require_once 'DB.php';
     require_once 'Email.php';
+    require_once 'Tools.php';
 
 
     final class SLS implements SLSI {
@@ -38,7 +39,7 @@
             $user = $this->DBInstance->loginUserWithEmailAndPassword($email, $plain_password);
             if ($user != null) {
                 session_start();
-                $_SESSION[$this->ConfigInstance::APPNAME . '_id'] = $user;
+                $_SESSION[$this->configInstance::APPNAME . '_id'] = $user;
             }
             return $user;
         }
@@ -47,9 +48,16 @@
             $user = $this->DBInstance->loginUserWithId($user_id);
             if ($user != null) {
                 session_start();
-                $_SESSION[$this->ConfigInstance::APPNAME . '_id'] = $user;
+                $_SESSION[$this->configInstance::APPNAME . '_id'] = $user;
             }
             return $user;
+        }
+
+        public function isUserLoggedIn() {
+            if (isset($_SESSION[$this->configInstance::APPNAME . '_id'])) {
+                return true;
+            }
+            return false;
         }
 
         public function logoutUser () {
@@ -68,16 +76,35 @@
         }
 
         public function registerAccount(string $email, string $plain_password) {
+
+            $tools = new Tools;
+            $password_valid = $tools->isPasswordValid($plain_password);
+
+            //Check if password is valid
+            if (is_a($password_valid, 'Err')) {
+                return $password_valid;
+            }
+
+            //Check if email verification is activated in Conf.php
             if ($this->configInstance::EMAILVERIFICATION) {
                 //Send verification mail
                 $sendmail = $this->emailInstance->sendEmailVerificationEmail($email);
 
+                //Error while sending email. Return Err Msg
                 if (is_a($sendmail, 'Err')) {
                     return $sendmail;
                 }
             }
 
-            return $this->DBInstance->registerAccount($email, $plain_password);
+            $register =  $this->DBInstance->registerAccount($email, $plain_password);
+
+
+            if (!is_a($register, 'Err')) {
+                $this->loginUserWithId($register->getUserId());
+                header('Location: dashboard.php');
+                return true;
+            }
+            return $register;
         }
 
         //Checks if password reset was requested and returns corresponding user object.

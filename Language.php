@@ -44,11 +44,11 @@
             $this->conf = Configuration::getInstance();
 
             //Passwort Anforderungen
-            $this->password_too_short = "Ihr Passwort muss aus mindestens " . $this->conf::MINPASSWORDLENGTH . "Zeichen bestehen.";
-            $this->password_not_enough_lowercase = "Ihr Passwort muss mindestens " . $this->conf::MINLOWERCASELETTERS . "Kleinbuchstaben beinhalten.";
-            $this->password_not_enough_uppercase = "Ihr Passwort muss mindestens " . $this->conf::MINUPPERCASELETTERS . "Großbuchstaben beinhalten.";
-            $this->password_not_enough_numbers = "Ihr Passwort muss mindestens " . $this->conf::MINNUMBERS . "Ziffern beinhalten.";
-            $this->password_not_enough_special = "Ihr Passwort muss mindestens " . $this->conf::MINSPECIALCHARS . "Sonderzeichen beinhalten.";
+            $this->password_too_short = "Ihr Passwort muss aus mindestens " . $this->conf::MINPASSWORDLENGTH . " Zeichen bestehen.";
+            $this->password_not_enough_lowercase = "Ihr Passwort muss mindestens " . $this->conf::MINLOWERCASELETTERS . " Kleinbuchstaben beinhalten.";
+            $this->password_not_enough_uppercase = "Ihr Passwort muss mindestens " . $this->conf::MINUPPERCASELETTERS . " Großbuchstaben beinhalten.";
+            $this->password_not_enough_numbers = "Ihr Passwort muss mindestens " . $this->conf::MINNUMBERS . " Ziffern beinhalten.";
+            $this->password_not_enough_special = "Ihr Passwort muss mindestens " . $this->conf::MINSPECIALCHARS . " Sonderzeichen beinhalten.";
 
             //E-Mail Texte
             $this->email_verification_subject = "Bitte bestätigen Sie Ihre E-Mail Adresse";
@@ -75,11 +75,11 @@
             $this->conf = Configuration::getInstance();
 
             //Password requirements
-            $this->password_too_short = "Your password must include at least " . $this->conf::MINPASSWORDLENGTH . "character(s).";
-            $this->password_not_enough_lowercase = "Must include at least " . $this->conf::MINLOWERCASELETTERS . "lowercase letter(s).";
-            $this->password_not_enough_uppercase = "Must include at least " . $this->conf::MINUPPERCASELETTERS . "uppercase letter(s).";
-            $this->password_not_enough_numbers = "Must include at least " . $this->conf::MINNUMBERS . "number(s).";
-            $this->password_not_enough_special = "Must include at least " . $this->conf::MINSPECIALCHARS . "special character(s).";
+            $this->password_too_short = "Your password must include at least " . $this->conf::MINPASSWORDLENGTH . " character(s).";
+            $this->password_not_enough_lowercase = "Must include at least " . $this->conf::MINLOWERCASELETTERS . " lowercase letter(s).";
+            $this->password_not_enough_uppercase = "Must include at least " . $this->conf::MINUPPERCASELETTERS . " uppercase letter(s).";
+            $this->password_not_enough_numbers = "Must include at least " . $this->conf::MINNUMBERS . " number(s).";
+            $this->password_not_enough_special = "Must include at least " . $this->conf::MINSPECIALCHARS . " special character(s).";
 
             //E-Mail wordings
             $this->email_verification_subject = "Please confirm your email address";

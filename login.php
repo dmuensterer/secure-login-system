@@ -1,9 +1,11 @@
 <?php
-    include 'db.php';
+    require_once 'SLS.php';
+    $sls = SLS::getInstance();
 
     //Redirect if already logged in
-    if (isset($_SESSION)) {
-        header('Location: form.php');
+    if ($sls->isUserLoggedIn()) {
+        header('Location: dashboard.php');
+        die();
     }
 
 
@@ -15,17 +17,12 @@
         $email = htmlentities($_POST['email']);
         $plain_password = htmlentities($_POST['password']);
 
+        $login = $sls->loginUserWithEmailAndPassword($email, $plain_password);
 
-
-        $db = DB::getInstance();
-        $user = $db->loginUser($email, $plain_password);
-
-        if ($user != null) {
-            session_start();
-            $_SESSION['id'] = $user->getId();
-            header('Location: form.php');
+        if (!is_a($login, 'Err')) {
+            header('Location: dashboard.php');
         } else {
-            $error = "E-Mail/Passwort falsch oder E-Mail noch nicht bestätigt.";
+            $error = $login->getDescription();
         }
 
     }
