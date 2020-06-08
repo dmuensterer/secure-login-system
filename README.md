@@ -1,13 +1,15 @@
 # Secure Login System - A simple PHP/MySQL OOP login system with focus on security
 
 ## Class features
-- User Registration & Login via Email and Password
-- Optional E-Mail Verification
+- Account Registration & Login via Email and Password
+- Multi-User Account support
+- Multi-Language support (currently translations for English and German)
+- Optional E-Mail Verification (Token Strength Configurable)
 - Forgot-Password Feature
 - Reset-Password Feature
 - Hashed & salted passwords (```PASSWORD_DEFAULT```'s ```BCRYPT``` algorithm) - passwords are NEVER processed in plain text
-- configurable, mandatory password length (default is 8 character)
-- configurable, mandatory password charset (default is at least one lowercase and uppercase letter, number and special character)
+- Configurable mandatory password length (default is 8 character)
+- Configurable, mandatory password charset (default is at least one lowercase and uppercase letter, number and special character)
 - Very easy usage through PHP OOP
 
 ## Usage
