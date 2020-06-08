@@ -1,0 +1,20 @@
+
+table {
+    width: 100%;
+}
+table tr {
+    width: 100%;
+}
+table td img {
+    height: 100px;
+}
+.card {
+    transition: .2s transform;
+}
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,.15), 0 4px 6px -2px rgba(0,0,0,.05);
+}
+form {
+    margin: 0;
+}

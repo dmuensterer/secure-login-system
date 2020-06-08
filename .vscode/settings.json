@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "askForPassword": false,
+            "database": "auth",
+            "driver": "MariaDB",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "auth",
+            "password": "mypassword",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "auth_user"
+        }
+    ]
+}
